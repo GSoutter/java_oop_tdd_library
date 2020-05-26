@@ -67,5 +67,28 @@ public class LibraryTest {
     }
 
 
+    @Test
+    public void canGetNumberofBooksInGenreFromHash(){
+        library.addBook(book);
+        library.addBook(book2);
+        library.addBook(book3);
+        assertEquals(2, library.numberOfBooksByGenre("Literary Fiction"));
+    }
+
+    @Test
+    public void canGetNumberofBooksInGenreFromHashWhenRemoved(){
+        library.addBook(book);
+        library.addBook(book2);
+        library.addBook(book3);
+        library.removeBook();
+        assertEquals(1, library.numberOfBooksByGenre("Literary Fiction"));
+    }
+
+
+    public void systemOutTest(){
+
+    }
+
+
 
 }
