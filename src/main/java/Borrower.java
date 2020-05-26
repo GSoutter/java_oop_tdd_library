@@ -13,4 +13,11 @@ public class Borrower {
     public int collectionSize() {
         return this.collection.size();
     }
+
+    public void takeBook(Library library) {
+        Book book = library.removeBook();
+        if (book != null){
+            this.collection.add(book);
+        }
+    }
 }

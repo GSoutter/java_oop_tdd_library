@@ -20,6 +20,10 @@ public class BorrowerTest {
 
         library = new Library(5);
 
+        library.addBook(book);
+        library.addBook(book2);
+        library.addBook(book3);
+
         borrower = new Borrower();
 
     }
@@ -27,6 +31,27 @@ public class BorrowerTest {
     @Test
     public void hasEmptyCollection(){
         assertEquals(0, borrower.collectionSize());
+    }
+
+    @Test
+    public void canTakeBookFromLibrary(){
+
+        borrower.takeBook(library);
+        assertEquals(2, library.numberOfBooks());
+        assertEquals(1, borrower.collectionSize());
+
+    }
+
+    @Test
+    public void cannotTakeTooManyBooksFromLibrary(){
+
+        borrower.takeBook(library);
+        borrower.takeBook(library);
+        borrower.takeBook(library);
+        borrower.takeBook(library);
+        assertEquals(0, library.numberOfBooks());
+        assertEquals(3, borrower.collectionSize());
+
     }
 
 
