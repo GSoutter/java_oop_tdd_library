@@ -19,6 +19,15 @@ public class Library {
     }
 
     public void addBook(Book book) {
-        this.stock.add(book);
+        if (numberOfBooks() < this.capacity) {
+            this.stock.add(book);
+        }
+    }
+
+    public Book removeBook() {
+        if (numberOfBooks() > 0) {
+            return this.stock.remove(0);
+        }
+        return null;
     }
 }

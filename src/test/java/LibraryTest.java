@@ -37,6 +37,35 @@ public class LibraryTest {
         assertEquals(2, library.numberOfBooks());
     }
 
+    @Test
+    public void cannotAddTooManyBooks(){
+        library.addBook(book);
+        library.addBook(book2);
+        library.addBook(book2);
+        library.addBook(book2);
+        library.addBook(book2);
+        library.addBook(book2);
+        assertEquals(5, library.numberOfBooks());
+    }
+
+    @Test
+    public void canRemoveBooks(){
+        library.addBook(book);
+        library.addBook(book2);
+        library.addBook(book2);
+        library.removeBook();
+        assertEquals(2, library.numberOfBooks());
+    }
+
+    @Test
+    public void cannotRemoveTooManyBooks(){
+        library.addBook(book);
+        library.removeBook();
+        library.removeBook();
+        library.removeBook();
+        assertEquals(0, library.numberOfBooks());
+    }
+
 
 
 }
